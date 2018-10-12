@@ -16,9 +16,10 @@ public class Content {
         cacheChain.put("f",new Student("aaaaaaaaaaa","zhangjun249",19));
 
 
+        System.out.println(cacheChain.get("a")+"aaaaaaaaaaa");
         cacheChain.cleanNode(3000,2);
 
-        System.out.println(cacheChain.get("a")!=null);
+
 
     }
 }

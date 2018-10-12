@@ -20,7 +20,7 @@ public class CacheChain {
             return headNode.getVal();
 
         //遍历节点找到使用了这个key的
-        for (CacheNode cacheNode = null; cacheNode != null; cacheNode = headNode.getNext()) {
+        for (CacheNode cacheNode = headNode; cacheNode != null; cacheNode = cacheNode.getNext()) {
             if (cacheNode.getKey().equals(key)) {
                 //找到了就把这个节点放到头部，然后把结果返回给调用者
                 switchToHead(cacheNode);
@@ -84,7 +84,7 @@ public class CacheChain {
         headNode.setLast(cacheNode);
         cacheNode.setNext(headNode);
         headNode=cacheNode;
-        
+
         size++;
         System.out.println("放进去了");
     }
