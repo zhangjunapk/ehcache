@@ -79,9 +79,12 @@ public class CacheChain {
         CacheNode cacheNode = new CacheNode();
         cacheNode.setKey(key);
         cacheNode.setVal(val);
-        cacheNode.setLast(tailNode);
-        tailNode.setNext(cacheNode);
-        tailNode = cacheNode;
+
+        //放到头部的，搞错了
+        headNode.setLast(cacheNode);
+        cacheNode.setNext(headNode);
+        headNode=cacheNode;
+        
         size++;
         System.out.println("放进去了");
     }
